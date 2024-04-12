@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: theme(),
       home: ProfilePage(),
     );
@@ -28,7 +29,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       endDrawer: ProfileDrawer(),
-      appBar: AppBar(),
+      appBar: _buildProfileAppBar(),
       body: Column(
         children: [
           SizedBox(height: 20),
@@ -45,5 +46,9 @@ class ProfilePage extends StatelessWidget {
 }
 
 AppBar _buildProfileAppBar() {
-  return AppBar();
+  return AppBar(
+    leading: Icon(Icons.arrow_back_ios),
+    title: Text("Profile"),
+    centerTitle: true,
+  );
 }
